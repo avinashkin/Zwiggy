@@ -21,7 +21,7 @@ const RestaurantCard = (props = {}) => {
       />
       <div className="flex flex-col">
         <div className="flex justify-between items-center mb-2">
-          <h2 className="text-3xl font-medium">{name}</h2>
+          <h2 className="overflow-hidden whitespace-nowrap text-ellipsis max-w-[80%] text-3xl font-medium" title={name}>{name}</h2>
           <div className="text-2xl">{avgRatingString}</div>
         </div>
         <div className="flex justify-between items-center text-2xl font-light mb-2">
