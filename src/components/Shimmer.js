@@ -4,8 +4,8 @@ const Shimmer = () => {
   return [...Array(15).keys()].map((v, i) => {
     const id = useId();
     return (
-      <div key={id} className="flex flex-col rounded-3xl p-4 w-[35rem] gap-3">
-        <div className="h-80 rounded-3xl bg-slate-200	"></div>
+      <div key={id} className="flex flex-col rounded-3xl p-4 w-[30rem] gap-3">
+        <div className="h-72 rounded-3xl bg-slate-200	"></div>
         <div className="flex flex-col">
           <div className="flex justify-between items-center mb-2">
             <h2 className="w-[16rem] h-[1.5rem] font-medium bg-slate-200"></h2>

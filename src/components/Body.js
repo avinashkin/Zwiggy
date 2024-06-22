@@ -31,7 +31,7 @@ const Body = () => {
 
   return (
     <div className="w-full">
-      <div className="w-[110rem] my-0 mx-auto">
+      <div className="w-[126rem] my-0 mx-auto">
         <div className="flex flex-wrap mt-12 gap-8">
           {!restaurantsList.length ? (
             <Shimmer />
