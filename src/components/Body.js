@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
-import Shimmer from "./Shimmer";
+
+import TopBrands from "./TopBrands";
+import Restaurants from "./Restaurants";
 
 const Body = () => {
-  const [restaurantsList, setRestaurantList] = useState([]);
+  const [restaurantsCard, setRestaurantCard] = useState({});
+  const [topBrandsCard, setTopBrandsCard] = useState({});
+  const [title, setTitle] = useState('');
+  const [apiCalled, setApiCalled] = useState(false);
 
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
+    setApiCalled(false);
     const res = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=29.0684183&lng=77.71336&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
@@ -18,29 +23,28 @@ const Body = () => {
     cards?.forEach((card) => {
       const { card: { card: resCard } = {} } = card || {};
 
+      if (resCard?.id === "top_brands_for_you") {
+        setTopBrandsCard(resCard);
+      }
+
       if (resCard?.id === "restaurant_grid_listing") {
-        const {
-          gridElements: {
-            infoWithStyle: { restaurants = [] },
-          },
-        } = resCard;
-        setRestaurantList(restaurants);
+        setRestaurantCard(resCard);
+      }
+
+      if (resCard?.id === 'popular_restaurants_title') {
+        resCard?.title && setTitle(resCard?.title);
       }
     });
+    setApiCalled(true);
   };
 
   return (
-    <div className="w-full">
-      <div className="w-[126rem] my-0 mx-auto">
-        <div className="flex flex-wrap mt-12 gap-8">
-          {!restaurantsList.length ? (
-            <Shimmer />
-          ) : (
-            restaurantsList?.map((restaurant = {}, index) => {
-              return <RestaurantCard restaurant={restaurant} key={index} />;
-            })
-          )}
-        </div>
+    <div className="flex flex-col w-full h-full">
+      <div className="margin-class m-0">
+        {<TopBrands data={topBrandsCard} apiCalled={apiCalled} />}
+      </div>
+      <div className="margin-class my-0 mx-auto">
+        <Restaurants data={restaurantsCard} title={title} />
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
 import { useId } from "react";
 
-const Shimmer = () => {
-  return [...Array(15).keys()].map((v, i) => {
+const Shimmer = ({cards = 15}) => {
+  
+  return [...Array(cards).keys()].map((v, i) => {
     const id = useId();
     return (
       <div key={id} className="flex flex-col rounded-3xl p-4 w-[30rem] gap-3">

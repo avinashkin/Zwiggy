@@ -15,3 +15,8 @@ body {
     font-weight: 400;
     font-style: normal;
 }
+
+.margin-class {
+    margin-left: calc(10% + 45px);
+    margin-right: calc(10% + 45px);
+}
