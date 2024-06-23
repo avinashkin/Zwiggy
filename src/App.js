@@ -5,6 +5,7 @@ import Body from "./components/Body";
 import AboutUs from "./components/AboutUs";
 import RestaurantMenu from "./components/RestaurantMenuPage";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+// import LocationComponent from "./components/Location";
 
 const AppLayout = () => {
 
@@ -12,6 +13,7 @@ const AppLayout = () => {
     <div className="app">
       <Header />
       <Outlet />
+      {/* <LocationComponent /> */}
     </div>
   );
 };

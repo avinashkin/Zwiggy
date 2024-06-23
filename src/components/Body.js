@@ -16,7 +16,7 @@ const Body = () => {
   const fetchData = async () => {
     setApiCalled(false);
     const res = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=29.0684183&lng=77.71336&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const data = await res.json();
     const cards = data?.data?.cards;
@@ -41,10 +41,10 @@ const Body = () => {
   return (
     <div className="flex flex-col w-full h-full">
       <div className="margin-class m-0">
-        {<TopBrands data={topBrandsCard} apiCalled={apiCalled} />}
+        <TopBrands data={topBrandsCard} apiCalled={apiCalled} />
       </div>
       <div className="margin-class my-0 mx-auto">
-        <Restaurants data={restaurantsCard} title={title} />
+        <Restaurants data={restaurantsCard} title={title} apiCalled={apiCalled} />
       </div>
     </div>
   );
