@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import MenuPageShimmer from "./Shimmer/MenuPageShimmer";
+import RestaurantMenu from "./RestaurantMenu";
 
-const RestaurantMenu = () => {
+const RestaurantMenuPage = () => {
   const [resInfo, setResInfo] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-
+    const [restaurantMenu, setResMenu] = useState([]);
   const params = useParams();
   const { resId } = params;
   
@@ -41,12 +42,17 @@ const RestaurantMenu = () => {
     const { data: { cards = [] } = {} } = data || {};
 
     cards?.forEach((card) => {
-      const { card: { card: resCard = {} } = {} } = card || {};
+      const { card: { card: resCard = {} } = {}, groupedCard: {cardGroupMap: {REGULAR} = {} } = {} } = card || {};
+      const {cards: resMenu = [] = {}} = REGULAR || {};
       const keys =
         resCard["@type"] && resCard["@type"].toLowerCase().split(".");
+        
       if (keys && keys.includes("restaurant")) {
-        console.log("Found", resCard);
         setResInfo(resCard);
+      }
+
+      if (resMenu.length) {
+        setResMenu(resMenu);
       }
     });
     setIsLoading(false);
@@ -120,8 +126,9 @@ const RestaurantMenu = () => {
       {renderBreadcrumbs()}
       <h1 className="text-5xl mt-10">{name}</h1>
       {renderRestaurantInfo()}
+      <RestaurantMenu restaurantMenu={restaurantMenu} />
     </div>
   );
 };
 
-export default RestaurantMenu;
+export default RestaurantMenuPage;
