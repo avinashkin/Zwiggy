@@ -32,7 +32,7 @@ const Restaurants = (props = {}) => {
           </div>
           <div className="flex flex-wrap mt-12 gap-8">
             {restaurants?.map((restaurant = {}, index) => {
-              return <Link to={`/restaurants/${restaurant?.info.id}`}><RestaurantCard restaurant={restaurant} key={index} /></Link>;
+              return <Link to={`/restaurants/${restaurant?.info.id}`} key={index}><RestaurantCard restaurant={restaurant} /></Link>;
             })}
           </div>
         </>

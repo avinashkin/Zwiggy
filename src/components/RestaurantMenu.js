@@ -17,7 +17,7 @@ const RestaurantMenu = (props) => {
     const k = `${title}_${key}`;
     
     return (
-      <div className={`${isFromNested ? '' : 'border-t-8'} border-slate-200 py-4`}>
+      <div className={`${isFromNested ? '' : 'border-t-8'} border-slate-200 py-4 first:border-t-0`}>
         <div className="flex justify-between items-center cursor-pointer" onClick={() => setAccordionProp(k)}>
           <h1 className={`${isFromNested ? "text-[1.6rem] font-medium" : "text-4xl font-semibold"} my-4`}>{title}</h1>
           <i className={`fa-solid fa-2xl fa-angle-down ${showAccordion[k] ? "" : "rotate-180"} transition-all`}></i>

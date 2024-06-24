@@ -31,17 +31,13 @@ const TopBrands = (props = {}) => {
       <div className="absolute mt-12 right-8">
         <div className="flex gap-6">
           <button
-            className={`rounded-full ${
-              disabled ? "bg-slate-100" : "bg-slate-00"
-            } w-16 h-16 cursor-pointer`}
+            className="rounded-full w-16 h-16 cursor-pointer bg-slate-100 hover:bg-slate-300"
             onClick={() => onScrollBtnClick('left')}
           >
             <i className="fa-solid fa-arrow-left"></i>
           </button>
           <button
-            className={`rounded-full ${
-              !disabled ? "bg-slate-100" : "bg-slate-300"
-            } w-16 h-16 cursor-pointer`}
+            className="rounded-full w-16 h-16 cursor-pointer bg-slate-100 hover:bg-slate-300"
             onClick={() => onScrollBtnClick('right', 500, 100)}
           >
             <i className="fa-solid fa-arrow-right"></i>

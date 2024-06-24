@@ -1,22 +1,26 @@
 import { useEffect, useState } from "react";
-
 import TopBrands from "./TopBrands";
 import Restaurants from "./Restaurants";
+import { useOutletContext } from "react-router-dom";
 
-const Body = () => {
+const Body = (props = {}) => {
   const [restaurantsCard, setRestaurantCard] = useState({});
   const [topBrandsCard, setTopBrandsCard] = useState({});
   const [title, setTitle] = useState('');
   const [apiCalled, setApiCalled] = useState(false);
+  const [geometry] = useOutletContext();
+  const {location: {lat, lng} = {}} = geometry || {};
 
   useEffect(() => {
+    setTopBrandsCard({});
+    setRestaurantCard({});
     fetchData();
-  }, []);
+  }, [lat, lng]);
 
   const fetchData = async () => {
     setApiCalled(false);
     const res = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=" + lat + "&lng=" + lng+ "&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const data = await res.json();
     const cards = data?.data?.cards;
