@@ -28,8 +28,8 @@ const Header = (props = {}) => {
             <Link to="/">
               <img className="scale-[1.45]" height="80" width="80" src={Logo} />
             </Link>
-            <div className="flex items-center flex-1" onClick={toggleSidebar}>
-              <div className="text-xl border-b rounded-l-lg outline-0 border-solid border-[rgb(232, 232, 232)] p-5 flex items-center h-16 cursor-pointer">
+            <div className="flex items-center flex-1">
+              <div className="text-xl border-b rounded-l-lg outline-0 border-solid border-[rgb(232, 232, 232)] p-5 flex items-center h-16 cursor-pointer" onClick={toggleSidebar}>
                 <i
                   className="fa-solid fa-xl fa-location-dot mr-4"
                   style={{ color: "#fc8019" }}
