@@ -3,7 +3,7 @@ import TopBrands from "./TopBrands";
 import Restaurants from "./Restaurants";
 import { useOutletContext } from "react-router-dom";
 
-const Body = (props = {}) => {
+const Body = () => {
   const [restaurantsCard, setRestaurantCard] = useState({});
   const [topBrandsCard, setTopBrandsCard] = useState({});
   const [title, setTitle] = useState('');
