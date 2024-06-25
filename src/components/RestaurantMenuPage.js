@@ -34,7 +34,7 @@ const RestaurantMenuPage = () => {
   const fetchRestaurantMenu = async () => {
     setIsLoading(true);
     const res = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId=" +
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId=" +
         resId +
         "&catalog_qa=undefined&submitAction=ENTER"
     );
