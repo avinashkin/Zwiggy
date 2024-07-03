@@ -5,7 +5,7 @@ import { useRef } from "react";
 
 const TopBrands = (props = {}) => {
   const scrollRef = useRef(null);
-  const { data, apiCalled } = props;
+  const { data, apiCalled, apiFail } = props;
   const {
     gridElements: { infoWithStyle: { restaurants = [] } = {} } = {},
     header: { title = "" } = {},
@@ -23,6 +23,8 @@ const TopBrands = (props = {}) => {
       scrollRef.current.scrollLeft -= 316;
     }
   };
+
+  if (apiFail) return null;
 
   return !restaurants.length ? (
     <TopBrandShimmer />

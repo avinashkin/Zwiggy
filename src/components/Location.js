@@ -17,11 +17,7 @@ const LocationComponent = (props = {}) => {
       return;
     }
 
-    const res = await fetch(
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/misc/place-autocomplete?input=" +
-        location +
-        "&types="
-    );
+    const res = await fetch("https://zwiggy-backend-ajoh.onrender.com/api/address?input=" + location);
     const data = await res.json();
     const { data: locations = [] } = data || {};
     setFetchedLocations(locations);
@@ -35,7 +31,7 @@ const LocationComponent = (props = {}) => {
 
   const fetchAdderssDetails = async (locationId) => {
     setIsLoading(true);
-    const res = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/misc/address-recommend?place_id=" + locationId);
+    const res = await fetch("https://zwiggy-backend-ajoh.onrender.com/api/address-info?place_id=" + locationId);
     const data = await res.json();
     const {data: locationInfo = [] } = data;
     const {formatted_address, geometry = {}} = locationInfo[0];
