@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import TopBrands from "./TopBrands";
 import Restaurants from "./Restaurants";
 import { useOutletContext } from "react-router-dom";
+import TopChoices from "./TopChoices";
 
 const Body = () => {
   const [restaurantsCard, setRestaurantCard] = useState({});
@@ -10,6 +11,7 @@ const Body = () => {
   const [apiCalled, setApiCalled] = useState(false);
   const [geometry] = useOutletContext();
   const [apiFail, setApiFail] = useState(false);
+  const [topChoicesCard, setTopChoicesCard] = useState({});
   const { location: { lat, lng } = {} } = geometry || {};
 
   useEffect(() => {
@@ -34,6 +36,10 @@ const Body = () => {
           setTopBrandsCard(resCard);
         }
 
+        if (resCard?.id === "whats_on_your_mind") {
+          setTopChoicesCard(resCard);
+        }
+
         if (resCard?.id === "restaurant_grid_listing") {
           setRestaurantCard(resCard);
         }
@@ -51,6 +57,9 @@ const Body = () => {
 
   return (
     <div className="flex flex-col w-full h-full">
+      <div className="margin-class m-0">
+        <TopChoices data={topChoicesCard} apiCalled={apiCalled} apiFail={apiFail}/>
+      </div>
       <div className="margin-class m-0">
         <TopBrands data={topBrandsCard} apiCalled={apiCalled} apiFail={apiFail} />
       </div>

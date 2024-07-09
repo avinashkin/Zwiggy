@@ -50,17 +50,17 @@ const Header = (props = {}) => {
           </div>
           <div className="nav-items">
             <ul className="flex gap-24 text-3xl">
-              <li className="cursor-pointer hover:hover:text-[#fc8019]">
+              <li className="cursor-pointer hover:hover:text-[#fc8019] select-none">
                 <Link to="/about">About Us</Link>
               </li>
               <li
-                className="cursor-pointer hover:text-[#fc8019] h-full"
+                className="cursor-pointer hover:text-[#fc8019] h-full w-[8.7rem] select-none"
                 onClick={() => setLogin(!isLoggedin)}
               >
                 <i className="fa-regular fa-user mr-3"></i>
                 {isLoggedin ? "Logout" : "Login"}
               </li>
-              <li className="cursor-pointer hover:text-[#fc8019] h-full">
+              <li className="cursor-pointer hover:text-[#fc8019] h-full select-none">
                 <i className="fa-solid fa-basket-shopping mr-3"></i>Cart
               </li>
             </ul>

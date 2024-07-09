@@ -11,7 +11,6 @@ const RestaurantMenuPage = (props = {}) => {
   const { resId } = params;
   const [geometry] = useOutletContext();
   const { location: { lat, lng } = {} } = geometry;
-  console.log(geometry);
 
   useEffect(() => {
     fetchRestaurantMenu();

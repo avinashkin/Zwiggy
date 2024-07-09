@@ -4,6 +4,9 @@ export const CDN_URL =
 export const MENU_IMG_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/";
 
+  
+export const TOP_IMG_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/";
+
 export const DEFAULT_ADDRESS = "Pune, Maharashtra, India";
 
 export const DEFAULT_GEOMETRY = {
