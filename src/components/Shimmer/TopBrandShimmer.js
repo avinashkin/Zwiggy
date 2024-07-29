@@ -18,6 +18,7 @@ const TopBrandShimmer = () => {
         </div>
         <hr className="-mx-10 h-2" />
       </div>
+      <h2 className="text-center text-2xl">First time loading may take some time since it is running on a free service.</h2>
     </div>
   );
 };
